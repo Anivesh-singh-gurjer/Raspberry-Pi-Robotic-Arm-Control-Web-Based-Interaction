@@ -1,37 +1,62 @@
-# 🤖 ArmPi Robotic Arm Motion Control & Emotion-Responsive Interface
+# Raspberry Pi Robotic Arm Emotion Interaction System
 
-An integrated robotic-arm control and web-based emotion interaction system built around the **Hiwonder ArmPi FPV AI Vision Robotic Arm** and a **Laravel-based web application**.
+## Overview
 
-The project focuses on creating, managing, and executing robotic-arm motions through a dedicated desktop interface, while also connecting the robot with a web-based emotion recognition interface that allows detected emotions to trigger corresponding robot actions.
+This project extends a multimodal emotion recognition system into a physical human–robot interaction platform using a **Hiwonder ArmPi FPV robotic arm powered by Raspberry Pi**.
+
+The system connects the emotion recognition pipeline with a web-based interface and the robotic arm, allowing the robot to recognize emotions from short video clips and automatically perform predefined physical actions corresponding to the detected emotion.
+
+The project also includes a dedicated interface for designing, organizing, previewing, and executing robotic-arm motion sequences.
 
 ---
 
-## 📌 Project Overview
+## Project Objectives
 
-This project extends the capabilities of the ArmPi robotic arm by developing a complete workflow for **robot motion creation, action management, emotion-based triggering, and interaction through a web interface**.
+The main objectives of this project are:
 
-The system consists of two major components:
+- Integrate multimodal emotion recognition with a physical robotic system.
+- Provide a web interface for interacting with the robotic arm.
+- Capture and process short video clips for emotion recognition.
+- Map recognized emotions to predefined robotic actions.
+- Automatically send the appropriate action command to the Raspberry Pi.
+- Record emotion recognition results together with the corresponding robot actions.
+- Provide a persistent history of robot–emotion interactions.
+- Develop an interface for creating and managing robotic-arm motion sequences.
 
-1. **ArmPi Studio** – A custom desktop interface for creating and organizing robotic-arm poses and motion sequences.
-2. **Robot Emotion Web Interface** – A Laravel web page that connects video-based emotion recognition with the robotic arm, allowing the robot to perform predefined actions according to the detected emotion.
+---
 
-The overall workflow is:
+## System Architecture
+
+The overall system consists of three major components:
 
 ```text
-Camera / Video
-      ↓
-6-Second Video Clip
-      ↓
-Multimodal Emotion Recognition
-      ↓
-Detected Emotion
-      ↓
-Emotion → Robot Action Mapping
-      ↓
-Raspberry Pi Robot Controller
-      ↓
-ArmPi Robotic Arm
-      ↓
-Action Execution
-      ↓
-Record Emotion + Action + Video
+                    ┌─────────────────────────┐
+                    │       Web Interface     │
+                    │                         │
+                    │  Camera / Video Input   │
+                    │  Robot Emotion Page     │
+                    │  Motion Control UI      │
+                    └────────────┬────────────┘
+                                 │
+                                 │ HTTP
+                                 ▼
+                    ┌─────────────────────────┐
+                    │    Laravel Backend      │
+                    │                         │
+                    │ Emotion Controller       │
+                    │ Robot Emotion Controller│
+                    │ Database Management      │
+                    └────────────┬────────────┘
+                                 │
+                    ┌────────────┴────────────┐
+                    │                         │
+                    ▼                         ▼
+          ┌──────────────────┐      ┌──────────────────┐
+          │ Emotion Analysis │      │ Raspberry Pi     │
+          │ Python API       │      │ Robotic Arm      │
+          │                  │      │                  │
+          │ Face             │      │ Action Groups    │
+          │ Voice            │      │ Motion Execution │
+          │ Text             │      │                  │
+          │ Multimodal Fusion│      │ ArmPi FPV        │
+          └──────────────────┘      └──────────────────┘
