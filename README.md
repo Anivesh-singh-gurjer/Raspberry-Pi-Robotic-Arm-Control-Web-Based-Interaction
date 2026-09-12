@@ -60,7 +60,7 @@ The overall system consists of three major components:
           │ Text             │      │                  │
           │ Multimodal Fusion│      │ ArmPi FPV        │
           └──────────────────┘      └──────────────────┘
-
+```
 Robotic Arm Motion Interface
 
 A major component of this project is a dedicated interface for controlling and designing robotic-arm motions.
@@ -93,7 +93,7 @@ The webpage provides a live camera interface where users can capture short video
 The system then determines the recognized emotion and selects a corresponding robotic action.
 
 For example:
-
+```
 Video Clip
     │
     ▼
@@ -107,7 +107,7 @@ Final Emotion
     ├── Anger ──────► wave_1.action
     │
     └── Other ──────► No mapped action
-
+```
 The mapping between emotions and robotic actions can be extended to support additional emotions and action groups.
 
 Video Processing
@@ -117,7 +117,7 @@ The robot emotion webpage supports video input through the browser camera.
 The system can capture approximately 6-second video clips, which are then uploaded to the Laravel backend.
 
 The workflow is:
-
+```
 Camera
   │
   ▼
@@ -140,7 +140,7 @@ Raspberry Pi
   │
   ▼
 Robotic Arm Motion
-
+```
 The system can also be extended to continuously process consecutive clips, allowing the robot to operate in a continuous emotion-recognition mode.
 
 Multimodal Emotion Analysis Integration
@@ -173,7 +173,7 @@ Anger	wave_1.action
 This architecture makes the system extensible.
 
 Additional mappings can be added without redesigning the entire application:
-
+```
 Emotion
    │
    ▼
@@ -186,7 +186,7 @@ Action Mapping
    ├── Surprise → ...
    └── Neutral  → ...
 Raspberry Pi Communication
-
+```
 The Laravel backend communicates with the Raspberry Pi through an HTTP-based interface.
 
 After emotion recognition, the backend sends information such as:
@@ -198,7 +198,7 @@ Database record ID.
 The Raspberry Pi receives the request and executes the corresponding robotic-arm action.
 
 This separation allows the web application, machine-learning inference system, and robotic controller to operate as independent components.
-
+```
 Laravel
    │
    │ HTTP Request
@@ -215,7 +215,7 @@ Action Group
    ▼
 Servo Motors
 Database and Interaction History
-
+```
 Each robot emotion interaction is stored in a dedicated database table:
 
 robot_emotion_records
