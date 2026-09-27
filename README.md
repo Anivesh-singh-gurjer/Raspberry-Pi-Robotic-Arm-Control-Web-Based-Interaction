@@ -1,5 +1,24 @@
 # Raspberry Pi Robotic Arm Emotion Interaction System
 
+## 🎥 Demonstration Videos
+
+The following videos demonstrate the physical robotic-arm integration and the complete emotion-driven human–robot interaction workflow.
+
+### 🦾 Robotic Arm Motion & Interaction Interface
+
+Demonstration of the web-based robotic-arm motion interface, including pose management, motion-sequence creation, previewing, and execution through the Raspberry Pi robotic arm.
+
+▶️ **[Watch / Download the Robotic Arm Motion Interface Demo](../../releases/latest)**
+
+### 🎭 Emotion Recognition & Robotic Arm Interaction
+
+Demonstration of the complete interaction pipeline, showing how the multimodal emotion recognition system detects an emotion and maps the result to a corresponding robotic-arm action.
+
+▶️ **[Watch / Download the Emotion Recognition & Robot Interaction Demo](../../releases/latest)**
+
+The videos are provided as GitHub Release assets to keep large binary files out of the main Git repository history.
+
+
 ## Overview
 
 This project extends a multimodal emotion recognition system into a physical human–robot interaction platform using a **Hiwonder ArmPi FPV robotic arm powered by Raspberry Pi**.
